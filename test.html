@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<style>
+
+	.red{ width:800px;height: 200px;position: relative;margin:100px auto;background:url(head.png) center no-repeat;background-size:cover;  }
+	.blue{ width:600px;height: 200px;position: relative;margin:150px auto;background:url(IMG_0810_223745.jpg) center no-repeat;background-size:cover; }
+
+	</style>
+</head>
+<body>
+	
+	<div class="red"></div>
+	<div class="blue"></div>
+	
+	<script>
+	var flag = true;
+	$(document).mousemove(function(e){
+        if(flag){
+            bs = e.pageX || e.clientX;
+            console.log(bs);
+        }
+        flag = false;
+        
+        var x = e.pageX || e.clientX;
+        var sx = -(x-bs)/16;
+        var rx = -(x-bs)/32;
+        $(".red").stop(true,false).animate({backgroundPositionX:sx},0);
+        $(".blue").stop(true,false).animate({backgroundPositionX:rx},0);
+    });
+	</script>
+</body>
+</html>
